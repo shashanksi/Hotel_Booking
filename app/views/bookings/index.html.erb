@@ -1,0 +1,35 @@
+<h1>List of bookings</h1>
+<div class="btn btn-secondary"><%= link_to 'Show Past Bookings',pastbookings_path%>&nbsp;</div>
+<div class="btn btn-secondary"><%= link_to 'Show Future Bookings',futurebookings_path%>&nbsp;</div>
+<br>
+ <div class="btn btn-default"><%= link_to 'Create New Booking',new_booking_path %></div>
+	<table class="table table-dark">
+	<thead>
+		<tr>
+			<th>startDate</th>
+			<th>endDate</th>
+			<th colspan="2">status</th>
+			<th colspan="2">Price</th>
+			<th colspan="2">Action</th>
+		</tr>
+	</thead>
+	<tbody>
+	<% @bookings.each do |booking|%>
+		<tr>
+
+			<td><%=booking.startDate%></td>
+			<td><%=booking.endDate%></td>
+
+			<td colspan="2"><%=booking.status%></td>
+			<td><%=booking.price%></td>
+
+			<td><%= link_to 'Show',booking_path(booking.id)%></td>
+			<td><%= link_to 'Edit',edit_booking_path(booking.id)%>&nbsp;</td>
+			<td><%= link_to 'Delete',booking_path(booking.id),data: { turbo_method: :delete, turbo_confirm: "Are you sure?" }%></td>
+		</tr>
+		
+	<%end%>
+
+	</tbody>
+	</table>
+

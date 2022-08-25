@@ -1,0 +1,35 @@
+
+
+<h1>CREATE NEW BOOKING</h1>
+<%= form_with(model:@booking,local:true) do |f| %>
+
+
+	<p>	
+		<%= f.label :startDate %> </br>
+		<%= f.datetime_field :startDate %>
+
+	</p>
+
+	<p>
+		<%= f.label :endDate %> </br>
+		<%= f.datetime_field :endDate %>
+	</p>
+	<p>
+		<%= f.label :status %> </br>
+		<%= f.select :status,['active','inactive','new']%>
+	</p>
+	<p>
+		<%= f.label :price %> </br>
+		<%= f.number_field :price %>
+	</p>
+
+		<p>
+		<%= f.label :property %> </br>
+		<%= f.select :property_id,Property.all.pluck(:name,:id) %>
+	</p>
+
+	<p>
+		<%= f.submit %>
+	</p>
+
+<% end %>
