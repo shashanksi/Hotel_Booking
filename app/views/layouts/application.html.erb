@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+
 <html>
   <head>
     <title>Userbooking</title>
@@ -6,24 +7,24 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= javascript_importmap_tags %>
+  
   </head>
 
   <body>
     <nav class="navbar navbar-inverse">
-  <div class="container-fluid">
+    <div class="container-fluid">
     <div class="navbar-header">
       
-     <div class="navbar-brand"> <%=link_to 'Reddoorz',root_path%></div>
+    <div class="navbar-brand"> <%=link_to 'Reddoorz',root_path%></div>
     </div>
     <ul class="nav navbar-nav">
      
-
 
       <!-- <li></li> -->
       <li><% if user_signed_in? %>
@@ -34,7 +35,7 @@
           <%end%>
 
 
-            <li><%=link_to current_user.fullname ,root_path %></li>
+            <li><%=link_to current_user.fullname ,user_path(current_user) %></li>
             <li class="btn btn-outline-primary" >
                 <%= button_to "Sign out", destroy_user_session_path, method: :delete %>
                 </li>
@@ -55,12 +56,7 @@
 </nav>
 
 
-
-
-
-
-
-  <%flash.each do |name,msg| %>
+  <%flash.each do |name,msg|%>
       <%=msg%>
     <% end %>
     

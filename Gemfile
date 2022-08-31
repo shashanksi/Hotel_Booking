@@ -12,6 +12,9 @@ gem "sprockets-rails"
 # Use mysql as the database for Active Record
 gem "mysql2", "~> 0.5"
 
+#for uploading imags
+gem "paperclip"
+
 #devise
 gem 'devise'
 

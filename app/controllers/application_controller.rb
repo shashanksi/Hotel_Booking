@@ -26,7 +26,7 @@ end
 protected
   def configure_permitted_parameters
   	
-   devise_parameter_sanitizer.permit(:sign_up) { |u| u.permit(:fullname, :email, :password, :accno, :phoneno)}
+   devise_parameter_sanitizer.permit(:sign_up) { |u| u.permit(:fullname, :email, :password, :accno, :phoneno,:avatar)}
 
    devise_parameter_sanitizer.permit(:account_update) { |u| u.permit(:fullname, :email, :password, :accno, :phoneno ,:current_password)}
   end

@@ -1,0 +1,888 @@
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT GET_LOCK('8123982034457326590', 0)[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.2ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+Migrating to CreateActiveStorageTables (20220831043513)
+  [1m[35m (11.8ms)[0m  [1m[35mCREATE TABLE `active_storage_blobs` (`id` bigint NOT NULL AUTO_INCREMENT PRIMARY KEY, `key` varchar(255) NOT NULL, `filename` varchar(255) NOT NULL, `content_type` varchar(255), `metadata` text, `service_name` varchar(255) NOT NULL, `byte_size` bigint NOT NULL, `checksum` varchar(255), `created_at` datetime(6) NOT NULL, UNIQUE INDEX `index_active_storage_blobs_on_key` (`key`))[0m
+  [1m[35m (13.4ms)[0m  [1m[35mCREATE TABLE `active_storage_attachments` (`id` bigint NOT NULL AUTO_INCREMENT PRIMARY KEY, `name` varchar(255) NOT NULL, `record_type` varchar(255) NOT NULL, `record_id` bigint NOT NULL, `blob_id` bigint NOT NULL, `created_at` datetime(6) NOT NULL, INDEX `index_active_storage_attachments_on_blob_id` (`blob_id`), UNIQUE INDEX `index_active_storage_attachments_uniqueness` (`record_type`, `record_id`, `name`, `blob_id`), CONSTRAINT `fk_rails_c3b3935057`
+FOREIGN KEY (`blob_id`)
+  REFERENCES `active_storage_blobs` (`id`)
+)[0m
+  [1m[35m (12.1ms)[0m  [1m[35mCREATE TABLE `active_storage_variant_records` (`id` bigint NOT NULL AUTO_INCREMENT PRIMARY KEY, `blob_id` bigint NOT NULL, `variation_digest` varchar(255) NOT NULL, UNIQUE INDEX `index_active_storage_variant_records_uniqueness` (`blob_id`, `variation_digest`), CONSTRAINT `fk_rails_993965df05`
+FOREIGN KEY (`blob_id`)
+  REFERENCES `active_storage_blobs` (`id`)
+)[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::SchemaMigration Create (0.2ms)[0m  [1m[32mINSERT INTO `schema_migrations` (`version`) VALUES ('20220831043513')[0m
+  [1m[36mTRANSACTION (1.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (1.0ms)[0m  [1m[34mSELECT `ar_internal_metadata`.* FROM `ar_internal_metadata` WHERE `ar_internal_metadata`.`key` = 'environment' LIMIT 1[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT RELEASE_LOCK('8123982034457326590')[0m
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.2ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+Started GET "/" for ::1 at 2022-08-31 10:10:59 +0530
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.4ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+Processing by HomeController#homepage as HTML
+Completed 401 Unauthorized in 7ms (ActiveRecord: 0.0ms | Allocations: 2532)
+
+
+Started GET "/users/sign_in" for ::1 at 2022-08-31 10:10:59 +0530
+Processing by Devise::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 1.0ms | Allocations: 752)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 5.9ms | Allocations: 3988)
+  Rendered layout layouts/application.html.erb (Duration: 82.3ms | Allocations: 39470)
+Completed 200 OK in 99ms (Views: 87.8ms | ActiveRecord: 3.0ms | Allocations: 48804)
+
+
+Started GET "/users/sign_up" for ::1 at 2022-08-31 10:11:02 +0530
+Processing by Devise::RegistrationsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/registrations/new.html.erb within layouts/application
+  Rendered devise/shared/_error_messages.html.erb (Duration: 0.4ms | Allocations: 231)
+  Rendered devise/shared/_links.html.erb (Duration: 0.4ms | Allocations: 177)
+  Rendered devise/registrations/new.html.erb within layouts/application (Duration: 12.7ms | Allocations: 8781)
+  Rendered layout layouts/application.html.erb (Duration: 15.4ms | Allocations: 11326)
+Completed 200 OK in 18ms (Views: 16.9ms | ActiveRecord: 0.0ms | Allocations: 12647)
+
+
+Started POST "/users" for ::1 at 2022-08-31 10:12:05 +0530
+Processing by Devise::RegistrationsController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "user"=>{"email"=>"shashank@gmail.com", "password"=>"[FILTERED]", "avatar"=>#<ActionDispatch::Http::UploadedFile:0x00007fb0de802870 @tempfile=#<Tempfile:/tmp/RackMultipart20220831-78117-1e0eb4.jpg>, @original_filename="IMG_20220810_162150.jpg", @content_type="image/jpeg", @headers="Content-Disposition: form-data; name=\"user[avatar]\"; filename=\"IMG_20220810_162150.jpg\"\r\nContent-Type: image/jpeg\r\n">, "password_confirmation"=>"[FILTERED]", "fullname"=>"shashank singh", "accno"=>"987654321", "phoneno"=>"12345678", "roles"=>"property owner"}, "commit"=>"Sign up"}
+[31mUnpermitted parameters: :password_confirmation, :roles. Context: { controller: Devise::RegistrationsController, action: create, request: #<ActionDispatch::Request:0x00007fb0e0767080>, params: {"authenticity_token"=>"[FILTERED]", "user"=>{"email"=>"shashank@gmail.com", "password"=>"[FILTERED]", "avatar"=>#<ActionDispatch::Http::UploadedFile:0x00007fb0de802870 @tempfile=#<Tempfile:/tmp/RackMultipart20220831-78117-1e0eb4.jpg>, @original_filename="IMG_20220810_162150.jpg", @content_type="image/jpeg", @headers="Content-Disposition: form-data; name=\"user[avatar]\"; filename=\"IMG_20220810_162150.jpg\"\r\nContent-Type: image/jpeg\r\n">, "password_confirmation"=>"[FILTERED]", "fullname"=>"shashank singh", "accno"=>"987654321", "phoneno"=>"12345678", "roles"=>"property owner"}, "commit"=>"Sign up", "controller"=>"devise/registrations", "action"=>"create"} }[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists? (0.2ms)[0m  [1m[34mSELECT 1 AS one FROM `users` WHERE `users`.`email` = BINARY 'shashank@gmail.com' LIMIT 1[0m
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO `users` (`email`, `encrypted_password`, `reset_password_token`, `reset_password_sent_at`, `remember_created_at`, `created_at`, `updated_at`, `fullname`, `accno`, `phoneno`) VALUES ('shashank@gmail.com', '$2a$12$iaiUSlrXQTO2latIhLGpQuWJX.817vZ6KNQItiU06nyfmtUhJV7By', NULL, NULL, NULL, '2022-08-31 04:42:06.008800', '2022-08-31 04:42:06.008800', 'shashank singh', '987654321', '12345678')[0m
+  [1m[36mActiveStorage::Blob Load (0.5ms)[0m  [1m[34mSELECT `active_storage_blobs`.* FROM `active_storage_blobs` INNER JOIN `active_storage_attachments` ON `active_storage_blobs`.`id` = `active_storage_attachments`.`blob_id` WHERE `active_storage_attachments`.`record_id` = 17 AND `active_storage_attachments`.`record_type` = 'User' AND `active_storage_attachments`.`name` = 'avatar' LIMIT 1[0m
+  [1m[36mActiveStorage::Attachment Load (0.2ms)[0m  [1m[34mSELECT `active_storage_attachments`.* FROM `active_storage_attachments` WHERE `active_storage_attachments`.`record_id` = 17 AND `active_storage_attachments`.`record_type` = 'User' AND `active_storage_attachments`.`name` = 'avatar' LIMIT 1[0m
+  [1m[36mActiveStorage::Blob Create (0.5ms)[0m  [1m[32mINSERT INTO `active_storage_blobs` (`key`, `filename`, `content_type`, `metadata`, `service_name`, `byte_size`, `checksum`, `created_at`) VALUES ('ns1vncpwew4kix5r0d7rmw3q3ny6', 'IMG_20220810_162150.jpg', 'image/jpeg', '{\"identified\":true}', 'local', 609338, 'HbtlV4LUY8zF6ZZMCI08FA==', '2022-08-31 04:42:06.033295')[0m
+  [1m[36mActiveStorage::Attachment Create (0.3ms)[0m  [1m[32mINSERT INTO `active_storage_attachments` (`name`, `record_type`, `record_id`, `blob_id`, `created_at`) VALUES ('avatar', 'User', 17, 1, '2022-08-31 04:42:06.036193')[0m
+  [1m[36mUser Update (0.4ms)[0m  [1m[33mUPDATE `users` SET `users`.`updated_at` = '2022-08-31 04:42:06.038140' WHERE `users`.`id` = 17[0m
+  [1m[36mTRANSACTION (2.1ms)[0m  [1m[35mCOMMIT[0m
+[36m  Disk Storage (2.4ms) [0m[32mUploaded file to key: ns1vncpwew4kix5r0d7rmw3q3ny6 (checksum: HbtlV4LUY8zF6ZZMCI08FA==)[0m
+[ActiveJob] Enqueued ActiveStorage::AnalyzeJob (Job ID: 2d922c1e-1bae-44e0-a891-c519d930c8e2) to Async(default) with arguments: #<GlobalID:0x00007fb0dd13c438 @uri=#<URI::GID gid://userbooking/ActiveStorage::Blob/1>>
+  [1m[36mRole Load (0.3ms)[0m  [1m[34mSELECT `roles`.* FROM `roles` WHERE `roles`.`field` = 'property owner' LIMIT 1[0m
+  ↳ app/controllers/application_controller.rb:14:in `after_sign_in_path_for'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/application_controller.rb:16:in `after_sign_in_path_for'
+  [1m[36mUser::HABTM_Roles Create (0.6ms)[0m  [1m[32mINSERT INTO `roles_users` (`role_id`, `user_id`) VALUES (1, 17)[0m
+  ↳ app/controllers/application_controller.rb:16:in `after_sign_in_path_for'
+  [1m[36mTRANSACTION (1.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/application_controller.rb:16:in `after_sign_in_path_for'
+[ActiveJob] [ActiveStorage::AnalyzeJob] [2d922c1e-1bae-44e0-a891-c519d930c8e2]   [1m[36mActiveStorage::Blob Load (1.0ms)[0m  [1m[34mSELECT `active_storage_blobs`.* FROM `active_storage_blobs` WHERE `active_storage_blobs`.`id` = 1 LIMIT 1[0m
+[ActiveJob] [ActiveStorage::AnalyzeJob] [2d922c1e-1bae-44e0-a891-c519d930c8e2] Performing ActiveStorage::AnalyzeJob (Job ID: 2d922c1e-1bae-44e0-a891-c519d930c8e2) from Async(default) enqueued at 2022-08-31T04:42:06Z with arguments: #<GlobalID:0x00007fb0dc079498 @uri=#<URI::GID gid://userbooking/ActiveStorage::Blob/1>>
+  [1m[36mRole Load (1.1ms)[0m  [1m[34mSELECT `roles`.* FROM `roles` INNER JOIN `roles_users` ON `roles`.`id` = `roles_users`.`role_id` WHERE `roles_users`.`user_id` = 17 ORDER BY `roles`.`id` ASC LIMIT 1[0m
+  ↳ app/controllers/application_controller.rb:17:in `after_sign_in_path_for'
+  [1m[36mCACHE Role Load (0.0ms)[0m  [1m[34mSELECT `roles`.* FROM `roles` INNER JOIN `roles_users` ON `roles`.`id` = `roles_users`.`role_id` WHERE `roles_users`.`user_id` = 17 ORDER BY `roles`.`id` ASC LIMIT 1[0m
+  ↳ app/controllers/application_controller.rb:19:in `after_sign_in_path_for'
+[ActiveJob] [ActiveStorage::AnalyzeJob] [2d922c1e-1bae-44e0-a891-c519d930c8e2] [36m  Disk Storage (1.0ms) [0m[34mDownloaded file from key: ns1vncpwew4kix5r0d7rmw3q3ny6[0m
+Redirected to http://localhost:3000/properties
+Completed 302 Found in 382ms (ActiveRecord: 15.2ms | Allocations: 54011)
+
+
+[ActiveJob] [ActiveStorage::AnalyzeJob] [2d922c1e-1bae-44e0-a891-c519d930c8e2] Skipping image analysis because the ruby-vips gem isn't installed
+[ActiveJob] [ActiveStorage::AnalyzeJob] [2d922c1e-1bae-44e0-a891-c519d930c8e2]   [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+[ActiveJob] [ActiveStorage::AnalyzeJob] [2d922c1e-1bae-44e0-a891-c519d930c8e2]   [1m[36mActiveStorage::Blob Update (0.4ms)[0m  [1m[33mUPDATE `active_storage_blobs` SET `active_storage_blobs`.`metadata` = '{\"identified\":true,\"analyzed\":true}' WHERE `active_storage_blobs`.`id` = 1[0m
+[ActiveJob] [ActiveStorage::AnalyzeJob] [2d922c1e-1bae-44e0-a891-c519d930c8e2]   [1m[36mTRANSACTION (3.9ms)[0m  [1m[35mCOMMIT[0m
+Started GET "/properties" for ::1 at 2022-08-31 10:12:06 +0530
+[ActiveJob] [ActiveStorage::AnalyzeJob] [2d922c1e-1bae-44e0-a891-c519d930c8e2] Performed ActiveStorage::AnalyzeJob (Job ID: 2d922c1e-1bae-44e0-a891-c519d930c8e2) from Async(default) in 32.55ms
+Processing by PropertiesController#index as TURBO_STREAM
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 17 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  Rendering layout layouts/application.html.erb
+  Rendering properties/index.html.erb within layouts/application
+  [1m[36mProperty Load (4.5ms)[0m  [1m[34mSELECT `properties`.* FROM `properties` WHERE `properties`.`user_id` = 17[0m
+  ↳ app/views/properties/index.html.erb:15
+  Rendered properties/index.html.erb within layouts/application (Duration: 23.5ms | Allocations: 2567)
+  [1m[36mRole Load (0.7ms)[0m  [1m[34mSELECT `roles`.* FROM `roles` INNER JOIN `roles_users` ON `roles`.`id` = `roles_users`.`role_id` WHERE `roles_users`.`user_id` = 17 ORDER BY `roles`.`id` ASC LIMIT 1[0m
+  ↳ app/views/layouts/application.html.erb:30
+  Rendered layout layouts/application.html.erb (Duration: 54.7ms | Allocations: 6359)
+Completed 200 OK in 84ms (Views: 51.7ms | ActiveRecord: 7.7ms | Allocations: 10557)
+
+
+Started GET "/users/17" for ::1 at 2022-08-31 10:12:13 +0530
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"17"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 17 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 17 LIMIT 1[0m
+  ↳ app/controllers/users_controller.rb:3:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering users/show.html.erb within layouts/application
+  Rendered users/show.html.erb within layouts/application (Duration: 1.6ms | Allocations: 468)
+  [1m[36mRole Load (0.8ms)[0m  [1m[34mSELECT `roles`.* FROM `roles` INNER JOIN `roles_users` ON `roles`.`id` = `roles_users`.`role_id` WHERE `roles_users`.`user_id` = 17 ORDER BY `roles`.`id` ASC LIMIT 1[0m
+  ↳ app/views/layouts/application.html.erb:30
+  Rendered layout layouts/application.html.erb (Duration: 11.1ms | Allocations: 4351)
+Completed 200 OK in 41ms (Views: 12.8ms | ActiveRecord: 2.1ms | Allocations: 7699)
+
+
+Started GET "/users/17" for ::1 at 2022-08-31 10:19:06 +0530
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.2ms)[0m  [1m[34mSELECT `schema_migrations`.`version` FROM `schema_migrations` ORDER BY `schema_migrations`.`version` ASC[0m
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"17"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 17 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 17 LIMIT 1[0m
+  ↳ app/controllers/users_controller.rb:3:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering users/show.html.erb within layouts/application
+  Rendered users/show.html.erb within layouts/application (Duration: 2.1ms | Allocations: 1755)
+  Rendered layout layouts/application.html.erb (Duration: 2.4ms | Allocations: 1868)
+Completed 500 Internal Server Error in 28ms (ActiveRecord: 4.4ms | Allocations: 16701)
+
+
+  
+ActionView::SyntaxErrorInTemplate (Encountered a syntax error while rendering template: check <h1 >User Profile</h1>
+
+
+<div class="container mt-4 mb-4 p-3 d-flex justify-content-center"> 
+	<div class="card p-4"> 
+		<div class=" image d-flex flex-column justify-content-center align-items-center"> 
+			<button class="btn btn-secondary"><% if @user.avatar.present? %>
+				<%=image_tag url_for(@user.avatar),class:'user_image'%>
+			</button> <span class="name mt-3"><%=@user.fullname%></span> 
+			<div class="d-flex flex-row justify-content-center align-items-center gap-2"> <span class="idd1">
+				<%=@user.email%>
+
+				<div class="d-flex flex-row justify-content-center align-items-center gap-2"> <span class="idd1">
+				<%=@user.accno%>
+				<div class="d-flex flex-row justify-content-center align-items-center gap-2"> <span class="idd1">
+				<%=@user.phoneno%>
+			</span> <span><i class="fa fa-copy"></i></span> </div> 
+
+			
+			<div class=" d-flex mt-2"> <%= button_to "Edit Profile", edit_user_registration_path, method: :get%></div>
+
+			
+			 <div class="gap-3 mt-3 icons d-flex flex-row justify-content-center align-items-center"> <span><i class="fa fa-twitter"></i></span> <span><i class="fa fa-facebook-f"></i></span> <span><i class="fa fa-instagram"></i></span> <span><i class="fa fa-linkedin"></i></span> </div> 
+
+			 <div class=" px-2 rounded mt-4 date "> <span class="join">Created At-><%=@user.created_at.to_date%></span></div> 
+		</div>
+	</div>
+</div>
+):
+1:    <h1 >User Profile</h1>
+2:    
+3:    
+4:    <div class="container mt-4 mb-4 p-3 d-flex justify-content-center"> 
+5:    	<div class="card p-4"> 
+6:    		<div class=" image d-flex flex-column justify-content-center align-items-center"> 
+7:    			<button class="btn btn-secondary"><% if @user.avatar.present? %>
+8:    				<%=image_tag url_for(@user.avatar),class:'user_image'%>
+9:    			</button> <span class="name mt-3"><%=@user.fullname%></span> 
+10:    			<div class="d-flex flex-row justify-content-center align-items-center gap-2"> <span class="idd1">
+11:    				<%=@user.email%>
+12:    
+13:    				<div class="d-flex flex-row justify-content-center align-items-center gap-2"> <span class="idd1">
+14:    				<%=@user.accno%>
+15:    				<div class="d-flex flex-row justify-content-center align-items-center gap-2"> <span class="idd1">
+16:    				<%=@user.phoneno%>
+17:    			</span> <span><i class="fa fa-copy"></i></span> </div> 
+18:    
+19:    			
+20:    			<div class=" d-flex mt-2"> <%= button_to "Edit Profile", edit_user_registration_path, method: :get%></div>
+21:    
+22:    			
+23:    			 <div class="gap-3 mt-3 icons d-flex flex-row justify-content-center align-items-center"> <span><i class="fa fa-twitter"></i></span> <span><i class="fa fa-facebook-f"></i></span> <span><i class="fa fa-instagram"></i></span> <span><i class="fa fa-linkedin"></i></span> </div> 
+24:    
+25:    			 <div class=" px-2 rounded mt-4 date "> <span class="join">Created At-><%=@user.created_at.to_date%></span></div> 
+26:    		</div>
+27:    	</div>
+28:    </div>
+  
+app/views/users/show.html.erb:30: syntax error, unexpected end-of-input, expecting `end'
+app/views/users/show.html.erb:30: syntax error, unexpected end-of-input, expecting `end'
+app/views/users/show.html.erb:30: syntax error, unexpected end-of-input, expecting `end'
+app/views/users/show.html.erb:30: syntax error, unexpected end-of-input, expecting `end'
+app/views/users/show.html.erb:30: syntax error, unexpected end-of-input, expecting `end'
+app/views/users/show.html.erb:30: syntax error, unexpected end-of-input, expecting `end'
+Started GET "/users/17" for ::1 at 2022-08-31 10:20:02 +0530
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"17"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 17 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 17 LIMIT 1[0m
+  ↳ app/controllers/users_controller.rb:3:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering users/show.html.erb within layouts/application
+  [1m[36mActiveStorage::Attachment Load (0.4ms)[0m  [1m[34mSELECT `active_storage_attachments`.* FROM `active_storage_attachments` WHERE `active_storage_attachments`.`record_id` = 17 AND `active_storage_attachments`.`record_type` = 'User' AND `active_storage_attachments`.`name` = 'avatar' LIMIT 1[0m
+  ↳ app/views/users/show.html.erb:7
+  [1m[36mActiveStorage::Blob Load (0.3ms)[0m  [1m[34mSELECT `active_storage_blobs`.* FROM `active_storage_blobs` WHERE `active_storage_blobs`.`id` = 1 LIMIT 1[0m
+  ↳ app/views/users/show.html.erb:8
+  Rendered users/show.html.erb within layouts/application (Duration: 45.9ms | Allocations: 29274)
+  [1m[36mRole Load (0.5ms)[0m  [1m[34mSELECT `roles`.* FROM `roles` INNER JOIN `roles_users` ON `roles`.`id` = `roles_users`.`role_id` WHERE `roles_users`.`user_id` = 17 ORDER BY `roles`.`id` ASC LIMIT 1[0m
+  ↳ app/views/layouts/application.html.erb:31
+  Rendered layout layouts/application.html.erb (Duration: 149.7ms | Allocations: 81744)
+Completed 200 OK in 155ms (Views: 141.6ms | ActiveRecord: 10.1ms | Allocations: 84660)
+
+
+Started GET "/rails/active_storage/blobs/redirect/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBCZz09IiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--f63487ecb7e1d540396061d456135c786baf38a1/IMG_20220810_162150.jpg" for ::1 at 2022-08-31 10:20:02 +0530
+Processing by ActiveStorage::Blobs::RedirectController#show as JPEG
+  Parameters: {"signed_id"=>"eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBCZz09IiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--f63487ecb7e1d540396061d456135c786baf38a1", "filename"=>"IMG_20220810_162150"}
+  [1m[36mActiveStorage::Blob Load (0.7ms)[0m  [1m[34mSELECT `active_storage_blobs`.* FROM `active_storage_blobs` WHERE `active_storage_blobs`.`id` = 1 LIMIT 1[0m
+[36m  Disk Storage (2.9ms) [0m[34mGenerated URL for file at key: ns1vncpwew4kix5r0d7rmw3q3ny6 (http://localhost:3000/rails/active_storage/disk/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaDdDVG9JYTJWNVNTSWhibk14ZG01amNIZGxkelJyYVhnMWNqQmtOM0p0ZHpOeE0yNTVOZ1k2QmtWVU9oQmthWE53YjNOcGRHbHZia2tpV1dsdWJHbHVaVHNnWm1sc1pXNWhiV1U5SWtsTlIxOHlNREl5TURneE1GOHhOakl4TlRBdWFuQm5JanNnWm1sc1pXNWhiV1VxUFZWVVJpMDRKeWRKVFVkZk1qQXlNakE0TVRCZk1UWXlNVFV3TG1wd1p3WTdCbFE2RVdOdmJuUmxiblJmZEhsd1pVa2lEMmx0WVdkbEwycHdaV2NHT3daVU9oRnpaWEoyYVdObFgyNWhiV1U2Q214dlkyRnMiLCJleHAiOiIyMDIyLTA4LTMxVDA0OjU1OjAyLjkzN1oiLCJwdXIiOiJibG9iX2tleSJ9fQ==--f69056b3aa6ffc505852b1d3f939c4f1e2861d31/IMG_20220810_162150.jpg)[0m
+Redirected to http://localhost:3000/rails/active_storage/disk/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaDdDVG9JYTJWNVNTSWhibk14ZG01amNIZGxkelJyYVhnMWNqQmtOM0p0ZHpOeE0yNTVOZ1k2QmtWVU9oQmthWE53YjNOcGRHbHZia2tpV1dsdWJHbHVaVHNnWm1sc1pXNWhiV1U5SWtsTlIxOHlNREl5TURneE1GOHhOakl4TlRBdWFuQm5JanNnWm1sc1pXNWhiV1VxUFZWVVJpMDRKeWRKVFVkZk1qQXlNakE0TVRCZk1UWXlNVFV3TG1wd1p3WTdCbFE2RVdOdmJuUmxiblJmZEhsd1pVa2lEMmx0WVdkbEwycHdaV2NHT3daVU9oRnpaWEoyYVdObFgyNWhiV1U2Q214dlkyRnMiLCJleHAiOiIyMDIyLTA4LTMxVDA0OjU1OjAyLjkzN1oiLCJwdXIiOiJibG9iX2tleSJ9fQ==--f69056b3aa6ffc505852b1d3f939c4f1e2861d31/IMG_20220810_162150.jpg
+Completed 302 Found in 13ms (ActiveRecord: 0.7ms | Allocations: 3882)
+
+
+Started GET "/rails/active_storage/disk/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaDdDVG9JYTJWNVNTSWhibk14ZG01amNIZGxkelJyYVhnMWNqQmtOM0p0ZHpOeE0yNTVOZ1k2QmtWVU9oQmthWE53YjNOcGRHbHZia2tpV1dsdWJHbHVaVHNnWm1sc1pXNWhiV1U5SWtsTlIxOHlNREl5TURneE1GOHhOakl4TlRBdWFuQm5JanNnWm1sc1pXNWhiV1VxUFZWVVJpMDRKeWRKVFVkZk1qQXlNakE0TVRCZk1UWXlNVFV3TG1wd1p3WTdCbFE2RVdOdmJuUmxiblJmZEhsd1pVa2lEMmx0WVdkbEwycHdaV2NHT3daVU9oRnpaWEoyYVdObFgyNWhiV1U2Q214dlkyRnMiLCJleHAiOiIyMDIyLTA4LTMxVDA0OjU1OjAyLjkzN1oiLCJwdXIiOiJibG9iX2tleSJ9fQ==--f69056b3aa6ffc505852b1d3f939c4f1e2861d31/IMG_20220810_162150.jpg" for ::1 at 2022-08-31 10:20:02 +0530
+Processing by ActiveStorage::DiskController#show as JPEG
+  Parameters: {"encoded_key"=>"[FILTERED]", "filename"=>"IMG_20220810_162150"}
+Completed 200 OK in 1ms (ActiveRecord: 0.0ms | Allocations: 326)
+
+
+Started GET "/users/17" for ::1 at 2022-08-31 10:20:24 +0530
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"17"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 17 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 17 LIMIT 1[0m
+  ↳ app/controllers/users_controller.rb:3:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering users/show.html.erb within layouts/application
+  [1m[36mActiveStorage::Attachment Load (0.3ms)[0m  [1m[34mSELECT `active_storage_attachments`.* FROM `active_storage_attachments` WHERE `active_storage_attachments`.`record_id` = 17 AND `active_storage_attachments`.`record_type` = 'User' AND `active_storage_attachments`.`name` = 'avatar' LIMIT 1[0m
+  ↳ app/views/users/show.html.erb:7
+  [1m[36mActiveStorage::Blob Load (0.5ms)[0m  [1m[34mSELECT `active_storage_blobs`.* FROM `active_storage_blobs` WHERE `active_storage_blobs`.`id` = 1 LIMIT 1[0m
+  ↳ app/views/users/show.html.erb:8
+  Rendered users/show.html.erb within layouts/application (Duration: 4.7ms | Allocations: 2101)
+  [1m[36mRole Load (0.5ms)[0m  [1m[34mSELECT `roles`.* FROM `roles` INNER JOIN `roles_users` ON `roles`.`id` = `roles_users`.`role_id` WHERE `roles_users`.`user_id` = 17 ORDER BY `roles`.`id` ASC LIMIT 1[0m
+  ↳ app/views/layouts/application.html.erb:31
+  Rendered layout layouts/application.html.erb (Duration: 14.3ms | Allocations: 8224)
+Completed 200 OK in 19ms (Views: 13.7ms | ActiveRecord: 1.8ms | Allocations: 10517)
+
+
+Started GET "/rails/active_storage/disk/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaDdDVG9JYTJWNVNTSWhibk14ZG01amNIZGxkelJyYVhnMWNqQmtOM0p0ZHpOeE0yNTVOZ1k2QmtWVU9oQmthWE53YjNOcGRHbHZia2tpV1dsdWJHbHVaVHNnWm1sc1pXNWhiV1U5SWtsTlIxOHlNREl5TURneE1GOHhOakl4TlRBdWFuQm5JanNnWm1sc1pXNWhiV1VxUFZWVVJpMDRKeWRKVFVkZk1qQXlNakE0TVRCZk1UWXlNVFV3TG1wd1p3WTdCbFE2RVdOdmJuUmxiblJmZEhsd1pVa2lEMmx0WVdkbEwycHdaV2NHT3daVU9oRnpaWEoyYVdObFgyNWhiV1U2Q214dlkyRnMiLCJleHAiOiIyMDIyLTA4LTMxVDA0OjU1OjAyLjkzN1oiLCJwdXIiOiJibG9iX2tleSJ9fQ==--f69056b3aa6ffc505852b1d3f939c4f1e2861d31/IMG_20220810_162150.jpg" for ::1 at 2022-08-31 10:20:24 +0530
+Processing by ActiveStorage::DiskController#show as JPEG
+  Parameters: {"encoded_key"=>"[FILTERED]", "filename"=>"IMG_20220810_162150"}
+Completed 304 Not Modified in 1ms (ActiveRecord: 0.0ms | Allocations: 154)
+
+
+Started GET "/users/17" for ::1 at 2022-08-31 10:20:45 +0530
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"17"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 17 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 17 LIMIT 1[0m
+  ↳ app/controllers/users_controller.rb:3:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering users/show.html.erb within layouts/application
+  [1m[36mActiveStorage::Attachment Load (0.3ms)[0m  [1m[34mSELECT `active_storage_attachments`.* FROM `active_storage_attachments` WHERE `active_storage_attachments`.`record_id` = 17 AND `active_storage_attachments`.`record_type` = 'User' AND `active_storage_attachments`.`name` = 'avatar' LIMIT 1[0m
+  ↳ app/views/users/show.html.erb:7
+  [1m[36mActiveStorage::Blob Load (0.2ms)[0m  [1m[34mSELECT `active_storage_blobs`.* FROM `active_storage_blobs` WHERE `active_storage_blobs`.`id` = 1 LIMIT 1[0m
+  ↳ app/views/users/show.html.erb:8
+  Rendered users/show.html.erb within layouts/application (Duration: 4.8ms | Allocations: 1948)
+  [1m[36mRole Load (0.4ms)[0m  [1m[34mSELECT `roles`.* FROM `roles` INNER JOIN `roles_users` ON `roles`.`id` = `roles_users`.`role_id` WHERE `roles_users`.`user_id` = 17 ORDER BY `roles`.`id` ASC LIMIT 1[0m
+  ↳ app/views/layouts/application.html.erb:31
+  Rendered layout layouts/application.html.erb (Duration: 14.3ms | Allocations: 7936)
+Completed 200 OK in 19ms (Views: 13.7ms | ActiveRecord: 1.6ms | Allocations: 10032)
+
+
+Started GET "/rails/active_storage/disk/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaDdDVG9JYTJWNVNTSWhibk14ZG01amNIZGxkelJyYVhnMWNqQmtOM0p0ZHpOeE0yNTVOZ1k2QmtWVU9oQmthWE53YjNOcGRHbHZia2tpV1dsdWJHbHVaVHNnWm1sc1pXNWhiV1U5SWtsTlIxOHlNREl5TURneE1GOHhOakl4TlRBdWFuQm5JanNnWm1sc1pXNWhiV1VxUFZWVVJpMDRKeWRKVFVkZk1qQXlNakE0TVRCZk1UWXlNVFV3TG1wd1p3WTdCbFE2RVdOdmJuUmxiblJmZEhsd1pVa2lEMmx0WVdkbEwycHdaV2NHT3daVU9oRnpaWEoyYVdObFgyNWhiV1U2Q214dlkyRnMiLCJleHAiOiIyMDIyLTA4LTMxVDA0OjU1OjAyLjkzN1oiLCJwdXIiOiJibG9iX2tleSJ9fQ==--f69056b3aa6ffc505852b1d3f939c4f1e2861d31/IMG_20220810_162150.jpg" for ::1 at 2022-08-31 10:20:45 +0530
+Processing by ActiveStorage::DiskController#show as JPEG
+  Parameters: {"encoded_key"=>"[FILTERED]", "filename"=>"IMG_20220810_162150"}
+Completed 304 Not Modified in 1ms (ActiveRecord: 0.0ms | Allocations: 154)
+
+
+Started GET "/users/17" for ::1 at 2022-08-31 10:20:55 +0530
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"17"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 17 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 17 LIMIT 1[0m
+  ↳ app/controllers/users_controller.rb:3:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering users/show.html.erb within layouts/application
+  [1m[36mActiveStorage::Attachment Load (0.4ms)[0m  [1m[34mSELECT `active_storage_attachments`.* FROM `active_storage_attachments` WHERE `active_storage_attachments`.`record_id` = 17 AND `active_storage_attachments`.`record_type` = 'User' AND `active_storage_attachments`.`name` = 'avatar' LIMIT 1[0m
+  ↳ app/views/users/show.html.erb:7
+  [1m[36mActiveStorage::Blob Load (0.3ms)[0m  [1m[34mSELECT `active_storage_blobs`.* FROM `active_storage_blobs` WHERE `active_storage_blobs`.`id` = 1 LIMIT 1[0m
+  ↳ app/views/users/show.html.erb:8
+  Rendered users/show.html.erb within layouts/application (Duration: 4.1ms | Allocations: 1947)
+  [1m[36mRole Load (0.7ms)[0m  [1m[34mSELECT `roles`.* FROM `roles` INNER JOIN `roles_users` ON `roles`.`id` = `roles_users`.`role_id` WHERE `roles_users`.`user_id` = 17 ORDER BY `roles`.`id` ASC LIMIT 1[0m
+  ↳ app/views/layouts/application.html.erb:31
+  Rendered layout layouts/application.html.erb (Duration: 15.4ms | Allocations: 7951)
+Completed 200 OK in 21ms (Views: 14.4ms | ActiveRecord: 2.0ms | Allocations: 10038)
+
+
+Started GET "/rails/active_storage/disk/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaDdDVG9JYTJWNVNTSWhibk14ZG01amNIZGxkelJyYVhnMWNqQmtOM0p0ZHpOeE0yNTVOZ1k2QmtWVU9oQmthWE53YjNOcGRHbHZia2tpV1dsdWJHbHVaVHNnWm1sc1pXNWhiV1U5SWtsTlIxOHlNREl5TURneE1GOHhOakl4TlRBdWFuQm5JanNnWm1sc1pXNWhiV1VxUFZWVVJpMDRKeWRKVFVkZk1qQXlNakE0TVRCZk1UWXlNVFV3TG1wd1p3WTdCbFE2RVdOdmJuUmxiblJmZEhsd1pVa2lEMmx0WVdkbEwycHdaV2NHT3daVU9oRnpaWEoyYVdObFgyNWhiV1U2Q214dlkyRnMiLCJleHAiOiIyMDIyLTA4LTMxVDA0OjU1OjAyLjkzN1oiLCJwdXIiOiJibG9iX2tleSJ9fQ==--f69056b3aa6ffc505852b1d3f939c4f1e2861d31/IMG_20220810_162150.jpg" for ::1 at 2022-08-31 10:20:55 +0530
+Processing by ActiveStorage::DiskController#show as JPEG
+  Parameters: {"encoded_key"=>"[FILTERED]", "filename"=>"IMG_20220810_162150"}
+Completed 304 Not Modified in 1ms (ActiveRecord: 0.0ms | Allocations: 152)
+
+
+Started GET "/users/17" for ::1 at 2022-08-31 10:21:07 +0530
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"17"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 17 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 17 LIMIT 1[0m
+  ↳ app/controllers/users_controller.rb:3:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering users/show.html.erb within layouts/application
+  [1m[36mActiveStorage::Attachment Load (0.3ms)[0m  [1m[34mSELECT `active_storage_attachments`.* FROM `active_storage_attachments` WHERE `active_storage_attachments`.`record_id` = 17 AND `active_storage_attachments`.`record_type` = 'User' AND `active_storage_attachments`.`name` = 'avatar' LIMIT 1[0m
+  ↳ app/views/users/show.html.erb:7
+  [1m[36mActiveStorage::Blob Load (0.2ms)[0m  [1m[34mSELECT `active_storage_blobs`.* FROM `active_storage_blobs` WHERE `active_storage_blobs`.`id` = 1 LIMIT 1[0m
+  ↳ app/views/users/show.html.erb:8
+  Rendered users/show.html.erb within layouts/application (Duration: 3.7ms | Allocations: 1948)
+  [1m[36mRole Load (0.4ms)[0m  [1m[34mSELECT `roles`.* FROM `roles` INNER JOIN `roles_users` ON `roles`.`id` = `roles_users`.`role_id` WHERE `roles_users`.`user_id` = 17 ORDER BY `roles`.`id` ASC LIMIT 1[0m
+  ↳ app/views/layouts/application.html.erb:31
+  Rendered layout layouts/application.html.erb (Duration: 13.3ms | Allocations: 7951)
+Completed 200 OK in 17ms (Views: 12.6ms | ActiveRecord: 1.5ms | Allocations: 10036)
+
+
+Started GET "/rails/active_storage/disk/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaDdDVG9JYTJWNVNTSWhibk14ZG01amNIZGxkelJyYVhnMWNqQmtOM0p0ZHpOeE0yNTVOZ1k2QmtWVU9oQmthWE53YjNOcGRHbHZia2tpV1dsdWJHbHVaVHNnWm1sc1pXNWhiV1U5SWtsTlIxOHlNREl5TURneE1GOHhOakl4TlRBdWFuQm5JanNnWm1sc1pXNWhiV1VxUFZWVVJpMDRKeWRKVFVkZk1qQXlNakE0TVRCZk1UWXlNVFV3TG1wd1p3WTdCbFE2RVdOdmJuUmxiblJmZEhsd1pVa2lEMmx0WVdkbEwycHdaV2NHT3daVU9oRnpaWEoyYVdObFgyNWhiV1U2Q214dlkyRnMiLCJleHAiOiIyMDIyLTA4LTMxVDA0OjU1OjAyLjkzN1oiLCJwdXIiOiJibG9iX2tleSJ9fQ==--f69056b3aa6ffc505852b1d3f939c4f1e2861d31/IMG_20220810_162150.jpg" for ::1 at 2022-08-31 10:21:07 +0530
+Processing by ActiveStorage::DiskController#show as JPEG
+  Parameters: {"encoded_key"=>"[FILTERED]", "filename"=>"IMG_20220810_162150"}
+Completed 304 Not Modified in 1ms (ActiveRecord: 0.0ms | Allocations: 154)
+
+
+Started GET "/users/edit" for ::1 at 2022-08-31 10:21:09 +0530
+Processing by Devise::RegistrationsController#edit as HTML
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 17 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  Rendering layout layouts/application.html.erb
+  Rendering devise/registrations/edit.html.erb within layouts/application
+  Rendered devise/shared/_error_messages.html.erb (Duration: 0.5ms | Allocations: 267)
+  Rendered devise/registrations/edit.html.erb within layouts/application (Duration: 7.1ms | Allocations: 5136)
+  [1m[36mRole Load (0.5ms)[0m  [1m[34mSELECT `roles`.* FROM `roles` INNER JOIN `roles_users` ON `roles`.`id` = `roles_users`.`role_id` WHERE `roles_users`.`user_id` = 17 ORDER BY `roles`.`id` ASC LIMIT 1[0m
+  ↳ app/views/layouts/application.html.erb:31
+  Rendered layout layouts/application.html.erb (Duration: 12.3ms | Allocations: 9046)
+Completed 200 OK in 18ms (Views: 13.3ms | ActiveRecord: 1.1ms | Allocations: 11712)
+
+
+Started GET "/users/17" for ::1 at 2022-08-31 10:22:23 +0530
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"17"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 17 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 17 LIMIT 1[0m
+  ↳ app/controllers/users_controller.rb:3:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering users/show.html.erb within layouts/application
+  [1m[36mActiveStorage::Attachment Load (0.3ms)[0m  [1m[34mSELECT `active_storage_attachments`.* FROM `active_storage_attachments` WHERE `active_storage_attachments`.`record_id` = 17 AND `active_storage_attachments`.`record_type` = 'User' AND `active_storage_attachments`.`name` = 'avatar' LIMIT 1[0m
+  ↳ app/views/users/show.html.erb:7
+  [1m[36mActiveStorage::Blob Load (0.2ms)[0m  [1m[34mSELECT `active_storage_blobs`.* FROM `active_storage_blobs` WHERE `active_storage_blobs`.`id` = 1 LIMIT 1[0m
+  ↳ app/views/users/show.html.erb:8
+  Rendered users/show.html.erb within layouts/application (Duration: 4.2ms | Allocations: 2568)
+  [1m[36mRole Load (0.4ms)[0m  [1m[34mSELECT `roles`.* FROM `roles` INNER JOIN `roles_users` ON `roles`.`id` = `roles_users`.`role_id` WHERE `roles_users`.`user_id` = 17 ORDER BY `roles`.`id` ASC LIMIT 1[0m
+  ↳ app/views/layouts/application.html.erb:31
+  Rendered layout layouts/application.html.erb (Duration: 10.8ms | Allocations: 6823)
+Completed 200 OK in 24ms (Views: 19.2ms | ActiveRecord: 1.5ms | Allocations: 9585)
+
+
+Started GET "/rails/active_storage/disk/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaDdDVG9JYTJWNVNTSWhibk14ZG01amNIZGxkelJyYVhnMWNqQmtOM0p0ZHpOeE0yNTVOZ1k2QmtWVU9oQmthWE53YjNOcGRHbHZia2tpV1dsdWJHbHVaVHNnWm1sc1pXNWhiV1U5SWtsTlIxOHlNREl5TURneE1GOHhOakl4TlRBdWFuQm5JanNnWm1sc1pXNWhiV1VxUFZWVVJpMDRKeWRKVFVkZk1qQXlNakE0TVRCZk1UWXlNVFV3TG1wd1p3WTdCbFE2RVdOdmJuUmxiblJmZEhsd1pVa2lEMmx0WVdkbEwycHdaV2NHT3daVU9oRnpaWEoyYVdObFgyNWhiV1U2Q214dlkyRnMiLCJleHAiOiIyMDIyLTA4LTMxVDA0OjU1OjAyLjkzN1oiLCJwdXIiOiJibG9iX2tleSJ9fQ==--f69056b3aa6ffc505852b1d3f939c4f1e2861d31/IMG_20220810_162150.jpg" for ::1 at 2022-08-31 10:22:23 +0530
+Processing by ActiveStorage::DiskController#show as JPEG
+  Parameters: {"encoded_key"=>"[FILTERED]", "filename"=>"IMG_20220810_162150"}
+Completed 304 Not Modified in 1ms (ActiveRecord: 0.0ms | Allocations: 188)
+
+
+Started GET "/users/edit" for ::1 at 2022-08-31 10:22:26 +0530
+Processing by Devise::RegistrationsController#edit as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 17 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  Rendering layout layouts/application.html.erb
+  Rendering devise/registrations/edit.html.erb within layouts/application
+  Rendered devise/shared/_error_messages.html.erb (Duration: 0.4ms | Allocations: 225)
+  Rendered devise/registrations/edit.html.erb within layouts/application (Duration: 11.6ms | Allocations: 13000)
+  [1m[36mRole Load (0.5ms)[0m  [1m[34mSELECT `roles`.* FROM `roles` INNER JOIN `roles_users` ON `roles`.`id` = `roles_users`.`role_id` WHERE `roles_users`.`user_id` = 17 ORDER BY `roles`.`id` ASC LIMIT 1[0m
+  ↳ app/views/layouts/application.html.erb:31
+  Rendered layout layouts/application.html.erb (Duration: 16.8ms | Allocations: 16913)
+Completed 200 OK in 21ms (Views: 17.9ms | ActiveRecord: 0.8ms | Allocations: 19073)
+
+
+Started GET "/properties" for ::1 at 2022-08-31 10:22:30 +0530
+Processing by PropertiesController#index as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 17 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  Rendering layout layouts/application.html.erb
+  Rendering properties/index.html.erb within layouts/application
+  [1m[36mProperty Load (0.3ms)[0m  [1m[34mSELECT `properties`.* FROM `properties` WHERE `properties`.`user_id` = 17[0m
+  ↳ app/views/properties/index.html.erb:15
+  Rendered properties/index.html.erb within layouts/application (Duration: 4.5ms | Allocations: 2569)
+  [1m[36mRole Load (0.3ms)[0m  [1m[34mSELECT `roles`.* FROM `roles` INNER JOIN `roles_users` ON `roles`.`id` = `roles_users`.`role_id` WHERE `roles_users`.`user_id` = 17 ORDER BY `roles`.`id` ASC LIMIT 1[0m
+  ↳ app/views/layouts/application.html.erb:31
+  Rendered layout layouts/application.html.erb (Duration: 9.5ms | Allocations: 6387)
+Completed 200 OK in 17ms (Views: 9.3ms | ActiveRecord: 2.2ms | Allocations: 10401)
+
+
+Started GET "/users/17" for ::1 at 2022-08-31 10:22:45 +0530
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"17"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 17 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 17 LIMIT 1[0m
+  ↳ app/controllers/users_controller.rb:3:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering users/show.html.erb within layouts/application
+  [1m[36mActiveStorage::Attachment Load (0.3ms)[0m  [1m[34mSELECT `active_storage_attachments`.* FROM `active_storage_attachments` WHERE `active_storage_attachments`.`record_id` = 17 AND `active_storage_attachments`.`record_type` = 'User' AND `active_storage_attachments`.`name` = 'avatar' LIMIT 1[0m
+  ↳ app/views/users/show.html.erb:7
+  [1m[36mActiveStorage::Blob Load (0.2ms)[0m  [1m[34mSELECT `active_storage_blobs`.* FROM `active_storage_blobs` WHERE `active_storage_blobs`.`id` = 1 LIMIT 1[0m
+  ↳ app/views/users/show.html.erb:8
+  Rendered users/show.html.erb within layouts/application (Duration: 4.7ms | Allocations: 2026)
+  [1m[36mRole Load (0.8ms)[0m  [1m[34mSELECT `roles`.* FROM `roles` INNER JOIN `roles_users` ON `roles`.`id` = `roles_users`.`role_id` WHERE `roles_users`.`user_id` = 17 ORDER BY `roles`.`id` ASC LIMIT 1[0m
+  ↳ app/views/layouts/application.html.erb:31
+  Rendered layout layouts/application.html.erb (Duration: 10.6ms | Allocations: 5545)
+Completed 200 OK in 15ms (Views: 9.7ms | ActiveRecord: 1.8ms | Allocations: 7699)
+
+
+Started GET "/properties" for ::1 at 2022-08-31 10:25:39 +0530
+Processing by PropertiesController#index as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 17 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  Rendering layout layouts/application.html.erb
+  Rendering properties/index.html.erb within layouts/application
+  [1m[36mProperty Load (0.3ms)[0m  [1m[34mSELECT `properties`.* FROM `properties` WHERE `properties`.`user_id` = 17[0m
+  ↳ app/views/properties/index.html.erb:15
+  Rendered properties/index.html.erb within layouts/application (Duration: 2.6ms | Allocations: 717)
+  [1m[36mRole Load (0.5ms)[0m  [1m[34mSELECT `roles`.* FROM `roles` INNER JOIN `roles_users` ON `roles`.`id` = `roles_users`.`role_id` WHERE `roles_users`.`user_id` = 17 ORDER BY `roles`.`id` ASC LIMIT 1[0m
+  ↳ app/views/layouts/application.html.erb:31
+  Rendered layout layouts/application.html.erb (Duration: 7.5ms | Allocations: 4235)
+Completed 200 OK in 12ms (Views: 7.3ms | ActiveRecord: 1.3ms | Allocations: 5842)
+
+
+Started GET "/users/17" for ::1 at 2022-08-31 10:25:41 +0530
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"17"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 17 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 17 LIMIT 1[0m
+  ↳ app/controllers/users_controller.rb:3:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering users/show.html.erb within layouts/application
+  [1m[36mActiveStorage::Attachment Load (0.4ms)[0m  [1m[34mSELECT `active_storage_attachments`.* FROM `active_storage_attachments` WHERE `active_storage_attachments`.`record_id` = 17 AND `active_storage_attachments`.`record_type` = 'User' AND `active_storage_attachments`.`name` = 'avatar' LIMIT 1[0m
+  ↳ app/views/users/show.html.erb:7
+  [1m[36mActiveStorage::Blob Load (0.2ms)[0m  [1m[34mSELECT `active_storage_blobs`.* FROM `active_storage_blobs` WHERE `active_storage_blobs`.`id` = 1 LIMIT 1[0m
+  ↳ app/views/users/show.html.erb:8
+  Rendered users/show.html.erb within layouts/application (Duration: 4.7ms | Allocations: 1947)
+  [1m[36mRole Load (0.4ms)[0m  [1m[34mSELECT `roles`.* FROM `roles` INNER JOIN `roles_users` ON `roles`.`id` = `roles_users`.`role_id` WHERE `roles_users`.`user_id` = 17 ORDER BY `roles`.`id` ASC LIMIT 1[0m
+  ↳ app/views/layouts/application.html.erb:31
+  Rendered layout layouts/application.html.erb (Duration: 10.5ms | Allocations: 5466)
+Completed 200 OK in 15ms (Views: 9.8ms | ActiveRecord: 1.6ms | Allocations: 7520)
+
+
+Started GET "/properties" for ::1 at 2022-08-31 10:25:42 +0530
+Processing by PropertiesController#index as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 17 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  Rendering layout layouts/application.html.erb
+  Rendering properties/index.html.erb within layouts/application
+  [1m[36mProperty Load (0.3ms)[0m  [1m[34mSELECT `properties`.* FROM `properties` WHERE `properties`.`user_id` = 17[0m
+  ↳ app/views/properties/index.html.erb:15
+  Rendered properties/index.html.erb within layouts/application (Duration: 1.5ms | Allocations: 717)
+  [1m[36mRole Load (0.4ms)[0m  [1m[34mSELECT `roles`.* FROM `roles` INNER JOIN `roles_users` ON `roles`.`id` = `roles_users`.`role_id` WHERE `roles_users`.`user_id` = 17 ORDER BY `roles`.`id` ASC LIMIT 1[0m
+  ↳ app/views/layouts/application.html.erb:31
+  Rendered layout layouts/application.html.erb (Duration: 6.8ms | Allocations: 4235)
+Completed 200 OK in 11ms (Views: 6.6ms | ActiveRecord: 1.0ms | Allocations: 5862)
+
+
+Started GET "/properties/new" for ::1 at 2022-08-31 10:25:43 +0530
+Processing by PropertiesController#new as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 17 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  Rendering layout layouts/application.html.erb
+  Rendering properties/new.html.erb within layouts/application
+  Rendered properties/new.html.erb within layouts/application (Duration: 10.3ms | Allocations: 11002)
+  [1m[36mRole Load (0.5ms)[0m  [1m[34mSELECT `roles`.* FROM `roles` INNER JOIN `roles_users` ON `roles`.`id` = `roles_users`.`role_id` WHERE `roles_users`.`user_id` = 17 ORDER BY `roles`.`id` ASC LIMIT 1[0m
+  ↳ app/views/layouts/application.html.erb:31
+  Rendered layout layouts/application.html.erb (Duration: 15.3ms | Allocations: 14840)
+Completed 200 OK in 23ms (Views: 15.3ms | ActiveRecord: 1.9ms | Allocations: 19166)
+
+
+Started POST "/properties" for ::1 at 2022-08-31 10:26:42 +0530
+Processing by PropertiesController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "property"=>{"name"=>"twin tower", "address"=>"sector 72", "latitude"=>"61.98", "longitude"=>"18.43"}, "commit"=>"Create Property"}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 17 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/properties_controller.rb:28:in `create'
+  [1m[36mProperty Create (0.6ms)[0m  [1m[32mINSERT INTO `properties` (`name`, `address`, `latitude`, `longitude`, `user_id`, `created_at`, `updated_at`) VALUES ('twin tower', 'sector 72', '61.98', '18.43', 17, '2022-08-31 04:56:42.086622', '2022-08-31 04:56:42.086622')[0m
+  ↳ app/controllers/properties_controller.rb:28:in `create'
+  [1m[36mTRANSACTION (1.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/properties_controller.rb:28:in `create'
+Redirected to http://localhost:3000/properties/7
+Completed 302 Found in 10ms (ActiveRecord: 2.9ms | Allocations: 5462)
+
+
+Started GET "/properties/7" for ::1 at 2022-08-31 10:26:42 +0530
+Processing by PropertiesController#show as TURBO_STREAM
+  Parameters: {"id"=>"7"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 17 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[36mProperty Load (0.2ms)[0m  [1m[34mSELECT `properties`.* FROM `properties` WHERE `properties`.`id` = 7 LIMIT 1[0m
+  ↳ app/controllers/properties_controller.rb:59:in `set_property'
+  Rendering layout layouts/application.html.erb
+  Rendering properties/show.html.erb within layouts/application
+  Rendered properties/show.html.erb within layouts/application (Duration: 0.7ms | Allocations: 229)
+  [1m[36mRole Load (0.4ms)[0m  [1m[34mSELECT `roles`.* FROM `roles` INNER JOIN `roles_users` ON `roles`.`id` = `roles_users`.`role_id` WHERE `roles_users`.`user_id` = 17 ORDER BY `roles`.`id` ASC LIMIT 1[0m
+  ↳ app/views/layouts/application.html.erb:31
+  Rendered layout layouts/application.html.erb (Duration: 6.5ms | Allocations: 3921)
+Completed 200 OK in 11ms (Views: 6.5ms | ActiveRecord: 0.9ms | Allocations: 6814)
+
+
+Started GET "/properties" for ::1 at 2022-08-31 10:26:43 +0530
+Processing by PropertiesController#index as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 17 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  Rendering layout layouts/application.html.erb
+  Rendering properties/index.html.erb within layouts/application
+  [1m[36mProperty Load (0.3ms)[0m  [1m[34mSELECT `properties`.* FROM `properties` WHERE `properties`.`user_id` = 17[0m
+  ↳ app/views/properties/index.html.erb:15
+  Rendered properties/index.html.erb within layouts/application (Duration: 1.9ms | Allocations: 923)
+  [1m[36mRole Load (0.4ms)[0m  [1m[34mSELECT `roles`.* FROM `roles` INNER JOIN `roles_users` ON `roles`.`id` = `roles_users`.`role_id` WHERE `roles_users`.`user_id` = 17 ORDER BY `roles`.`id` ASC LIMIT 1[0m
+  ↳ app/views/layouts/application.html.erb:31
+  Rendered layout layouts/application.html.erb (Duration: 7.7ms | Allocations: 4441)
+Completed 200 OK in 11ms (Views: 7.4ms | ActiveRecord: 1.1ms | Allocations: 6057)
+
+
+Started GET "/properties/7/bookings" for ::1 at 2022-08-31 10:26:53 +0530
+Processing by PropertiesController#bookings as HTML
+  Parameters: {"id"=>"7"}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 17 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[36mProperty Load (0.2ms)[0m  [1m[34mSELECT `properties`.* FROM `properties` WHERE `properties`.`id` = 7 LIMIT 1[0m
+  ↳ app/controllers/properties_controller.rb:59:in `set_property'
+  Rendering layout layouts/application.html.erb
+  Rendering properties/bookings.html.erb within layouts/application
+  [1m[36mBooking Load (0.4ms)[0m  [1m[34mSELECT `bookings`.* FROM `bookings` WHERE `bookings`.`property_id` = 7[0m
+  ↳ app/views/properties/bookings.html.erb:14
+  Rendered properties/bookings.html.erb within layouts/application (Duration: 11.4ms | Allocations: 2555)
+  [1m[36mRole Load (0.4ms)[0m  [1m[34mSELECT `roles`.* FROM `roles` INNER JOIN `roles_users` ON `roles`.`id` = `roles_users`.`role_id` WHERE `roles_users`.`user_id` = 17 ORDER BY `roles`.`id` ASC LIMIT 1[0m
+  ↳ app/views/layouts/application.html.erb:31
+  Rendered layout layouts/application.html.erb (Duration: 18.9ms | Allocations: 6300)
+Completed 200 OK in 27ms (Views: 17.5ms | ActiveRecord: 2.9ms | Allocations: 10129)
+
+
+Started DELETE "/users/sign_out" for ::1 at 2022-08-31 10:27:02 +0530
+Processing by Devise::SessionsController#destroy as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 17 ORDER BY `users`.`id` ASC LIMIT 1[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 6ms (ActiveRecord: 0.3ms | Allocations: 3259)
+
+
+Started GET "/" for ::1 at 2022-08-31 10:27:02 +0530
+Processing by HomeController#homepage as TURBO_STREAM
+Completed 401 Unauthorized in 2ms (ActiveRecord: 0.0ms | Allocations: 486)
+
+
+Started GET "/users/sign_in.turbo_stream" for ::1 at 2022-08-31 10:27:02 +0530
+Processing by Devise::SessionsController#new as TURBO_STREAM
+Completed 406 Not Acceptable in 1ms (ActiveRecord: 0.0ms | Allocations: 900)
+
+
+  
+ActionController::UnknownFormat (ActionController::UnknownFormat):
+  
+responders (3.0.1) lib/action_controller/respond_with.rb:215:in `respond_with'
+devise (4.8.1) app/controllers/devise/sessions_controller.rb:14:in `new'
+actionpack (7.0.3.1) lib/action_controller/metal/basic_implicit_render.rb:6:in `send_action'
+actionpack (7.0.3.1) lib/abstract_controller/base.rb:215:in `process_action'
+actionpack (7.0.3.1) lib/action_controller/metal/rendering.rb:53:in `process_action'
+actionpack (7.0.3.1) lib/abstract_controller/callbacks.rb:234:in `block in process_action'
+activesupport (7.0.3.1) lib/active_support/callbacks.rb:118:in `block in run_callbacks'
+actiontext (7.0.3.1) lib/action_text/rendering.rb:20:in `with_renderer'
+actiontext (7.0.3.1) lib/action_text/engine.rb:69:in `block (4 levels) in <class:Engine>'
+activesupport (7.0.3.1) lib/active_support/callbacks.rb:127:in `instance_exec'
+activesupport (7.0.3.1) lib/active_support/callbacks.rb:127:in `block in run_callbacks'
+activesupport (7.0.3.1) lib/active_support/callbacks.rb:138:in `run_callbacks'
+actionpack (7.0.3.1) lib/abstract_controller/callbacks.rb:233:in `process_action'
+actionpack (7.0.3.1) lib/action_controller/metal/rescue.rb:22:in `process_action'
+actionpack (7.0.3.1) lib/action_controller/metal/instrumentation.rb:67:in `block in process_action'
+activesupport (7.0.3.1) lib/active_support/notifications.rb:206:in `block in instrument'
+activesupport (7.0.3.1) lib/active_support/notifications/instrumenter.rb:24:in `instrument'
+activesupport (7.0.3.1) lib/active_support/notifications.rb:206:in `instrument'
+actionpack (7.0.3.1) lib/action_controller/metal/instrumentation.rb:66:in `process_action'
+actionpack (7.0.3.1) lib/action_controller/metal/params_wrapper.rb:259:in `process_action'
+activerecord (7.0.3.1) lib/active_record/railties/controller_runtime.rb:27:in `process_action'
+actionpack (7.0.3.1) lib/abstract_controller/base.rb:151:in `process'
+actionview (7.0.3.1) lib/action_view/rendering.rb:39:in `process'
+actionpack (7.0.3.1) lib/action_controller/metal.rb:188:in `dispatch'
+actionpack (7.0.3.1) lib/action_controller/metal.rb:251:in `dispatch'
+actionpack (7.0.3.1) lib/action_dispatch/routing/route_set.rb:49:in `dispatch'
+actionpack (7.0.3.1) lib/action_dispatch/routing/route_set.rb:32:in `serve'
+actionpack (7.0.3.1) lib/action_dispatch/routing/mapper.rb:18:in `block in <class:Constraints>'
+actionpack (7.0.3.1) lib/action_dispatch/routing/mapper.rb:48:in `serve'
+actionpack (7.0.3.1) lib/action_dispatch/journey/router.rb:50:in `block in serve'
+actionpack (7.0.3.1) lib/action_dispatch/journey/router.rb:32:in `each'
+actionpack (7.0.3.1) lib/action_dispatch/journey/router.rb:32:in `serve'
+actionpack (7.0.3.1) lib/action_dispatch/routing/route_set.rb:852:in `call'
+warden (1.2.9) lib/warden/manager.rb:36:in `block in call'
+warden (1.2.9) lib/warden/manager.rb:34:in `catch'
+warden (1.2.9) lib/warden/manager.rb:34:in `call'
+rack (2.2.4) lib/rack/tempfile_reaper.rb:15:in `call'
+rack (2.2.4) lib/rack/etag.rb:27:in `call'
+rack (2.2.4) lib/rack/conditional_get.rb:27:in `call'
+rack (2.2.4) lib/rack/head.rb:12:in `call'
+actionpack (7.0.3.1) lib/action_dispatch/http/permissions_policy.rb:38:in `call'
+actionpack (7.0.3.1) lib/action_dispatch/http/content_security_policy.rb:36:in `call'
+rack (2.2.4) lib/rack/session/abstract/id.rb:266:in `context'
+rack (2.2.4) lib/rack/session/abstract/id.rb:260:in `call'
+actionpack (7.0.3.1) lib/action_dispatch/middleware/cookies.rb:697:in `call'
+activerecord (7.0.3.1) lib/active_record/migration.rb:603:in `call'
+actionpack (7.0.3.1) lib/action_dispatch/middleware/callbacks.rb:27:in `block in call'
+activesupport (7.0.3.1) lib/active_support/callbacks.rb:99:in `run_callbacks'
+actionpack (7.0.3.1) lib/action_dispatch/middleware/callbacks.rb:26:in `call'
+actionpack (7.0.3.1) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (7.0.3.1) lib/action_dispatch/middleware/actionable_exceptions.rb:17:in `call'
+actionpack (7.0.3.1) lib/action_dispatch/middleware/debug_exceptions.rb:28:in `call'
+web-console (4.2.0) lib/web_console/middleware.rb:132:in `call_app'
+web-console (4.2.0) lib/web_console/middleware.rb:28:in `block in call'
+web-console (4.2.0) lib/web_console/middleware.rb:17:in `catch'
+web-console (4.2.0) lib/web_console/middleware.rb:17:in `call'
+actionpack (7.0.3.1) lib/action_dispatch/middleware/show_exceptions.rb:26:in `call'
+railties (7.0.3.1) lib/rails/rack/logger.rb:40:in `call_app'
+railties (7.0.3.1) lib/rails/rack/logger.rb:25:in `block in call'
+activesupport (7.0.3.1) lib/active_support/tagged_logging.rb:114:in `block in tagged'
+activesupport (7.0.3.1) lib/active_support/tagged_logging.rb:38:in `tagged'
+activesupport (7.0.3.1) lib/active_support/tagged_logging.rb:114:in `tagged'
+railties (7.0.3.1) lib/rails/rack/logger.rb:25:in `call'
+sprockets-rails (3.4.2) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (7.0.3.1) lib/action_dispatch/middleware/remote_ip.rb:93:in `call'
+actionpack (7.0.3.1) lib/action_dispatch/middleware/request_id.rb:26:in `call'
+rack (2.2.4) lib/rack/method_override.rb:24:in `call'
+rack (2.2.4) lib/rack/runtime.rb:22:in `call'
+activesupport (7.0.3.1) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (7.0.3.1) lib/action_dispatch/middleware/server_timing.rb:20:in `call'
+actionpack (7.0.3.1) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (7.0.3.1) lib/action_dispatch/middleware/static.rb:23:in `call'
+rack (2.2.4) lib/rack/sendfile.rb:110:in `call'
+actionpack (7.0.3.1) lib/action_dispatch/middleware/host_authorization.rb:137:in `call'
+railties (7.0.3.1) lib/rails/engine.rb:530:in `call'
+puma (5.6.4) lib/puma/configuration.rb:252:in `call'
+puma (5.6.4) lib/puma/request.rb:77:in `block in handle_request'
+puma (5.6.4) lib/puma/thread_pool.rb:340:in `with_force_shutdown'
+puma (5.6.4) lib/puma/request.rb:76:in `handle_request'
+puma (5.6.4) lib/puma/server.rb:441:in `process_client'
+puma (5.6.4) lib/puma/thread_pool.rb:147:in `block in spawn_thread'
+Started GET "/properties" for ::1 at 2022-08-31 10:27:02 +0530
+Processing by PropertiesController#index as HTML
+Completed 401 Unauthorized in 1ms (ActiveRecord: 0.0ms | Allocations: 300)
+
+
+Started GET "/users/sign_in" for ::1 at 2022-08-31 10:27:02 +0530
+Processing by Devise::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 1.4ms | Allocations: 745)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 4.8ms | Allocations: 2840)
+  Rendered layout layouts/application.html.erb (Duration: 7.5ms | Allocations: 5463)
+Completed 200 OK in 10ms (Views: 9.5ms | ActiveRecord: 0.0ms | Allocations: 6583)
+
+
+Started GET "/users/sign_in" for ::1 at 2022-08-31 10:27:03 +0530
+Processing by Devise::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 0.2ms | Allocations: 138)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 2.0ms | Allocations: 1264)
+  Rendered layout layouts/application.html.erb (Duration: 5.0ms | Allocations: 3649)
+Completed 200 OK in 7ms (Views: 5.5ms | ActiveRecord: 0.0ms | Allocations: 4371)
+
+
+Started POST "/users/sign_in" for ::1 at 2022-08-31 10:27:08 +0530
+Processing by Devise::SessionsController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "user"=>{"email"=>"tyson@gmail.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`email` = 'tyson@gmail.com' ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[36mRole Load (0.5ms)[0m  [1m[34mSELECT `roles`.* FROM `roles` WHERE `roles`.`field` IS NULL LIMIT 1[0m
+  ↳ app/controllers/application_controller.rb:14:in `after_sign_in_path_for'
+  [1m[36mRole Load (0.5ms)[0m  [1m[34mSELECT `roles`.* FROM `roles` INNER JOIN `roles_users` ON `roles`.`id` = `roles_users`.`role_id` WHERE `roles_users`.`user_id` = 10 ORDER BY `roles`.`id` ASC LIMIT 1[0m
+  ↳ app/controllers/application_controller.rb:17:in `after_sign_in_path_for'
+Redirected to http://localhost:3000/bookings
+Completed 302 Found in 302ms (ActiveRecord: 1.4ms | Allocations: 5492)
+
+
+Started GET "/bookings" for ::1 at 2022-08-31 10:27:08 +0530
+Processing by BookingsController#index as TURBO_STREAM
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 10 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  Rendering layout layouts/application.html.erb
+  Rendering bookings/index.html.erb within layouts/application
+  [1m[36mBooking Load (0.4ms)[0m  [1m[34mSELECT `bookings`.* FROM `bookings` WHERE `bookings`.`user_id` = 10[0m
+  ↳ app/views/bookings/index.html.erb:17
+  Rendered bookings/index.html.erb within layouts/application (Duration: 9.3ms | Allocations: 7059)
+  [1m[36mRole Load (0.4ms)[0m  [1m[34mSELECT `roles`.* FROM `roles` INNER JOIN `roles_users` ON `roles`.`id` = `roles_users`.`role_id` WHERE `roles_users`.`user_id` = 10 ORDER BY `roles`.`id` ASC LIMIT 1[0m
+  ↳ app/views/layouts/application.html.erb:31
+  Rendered layout layouts/application.html.erb (Duration: 15.6ms | Allocations: 10875)
+Completed 200 OK in 21ms (Views: 15.2ms | ActiveRecord: 2.2ms | Allocations: 13721)
+
+
+Started GET "/bookings/new" for ::1 at 2022-08-31 10:27:20 +0530
+Processing by BookingsController#new as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 10 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  Rendering layout layouts/application.html.erb
+  Rendering bookings/new.html.erb within layouts/application
+  [1m[36mProperty Pluck (0.4ms)[0m  [1m[34mSELECT `properties`.`name`, `properties`.`id` FROM `properties`[0m
+  ↳ app/views/bookings/new.html.erb:28
+  Rendered bookings/new.html.erb within layouts/application (Duration: 14.2ms | Allocations: 12686)
+  [1m[36mRole Load (0.4ms)[0m  [1m[34mSELECT `roles`.* FROM `roles` INNER JOIN `roles_users` ON `roles`.`id` = `roles_users`.`role_id` WHERE `roles_users`.`user_id` = 10 ORDER BY `roles`.`id` ASC LIMIT 1[0m
+  ↳ app/views/layouts/application.html.erb:31
+  Rendered layout layouts/application.html.erb (Duration: 20.0ms | Allocations: 16433)
+Completed 200 OK in 24ms (Views: 20.1ms | ActiveRecord: 1.2ms | Allocations: 18210)
+
+
+Started GET "/" for ::1 at 2022-08-31 12:10:22 +0530
+Processing by HomeController#homepage as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 10 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  Rendering layout layouts/application.html.erb
+  Rendering home/homepage.html.erb within layouts/application
+  Rendered home/homepage.html.erb within layouts/application (Duration: 1.2ms | Allocations: 654)
+  [1m[36mRole Load (0.5ms)[0m  [1m[34mSELECT `roles`.* FROM `roles` INNER JOIN `roles_users` ON `roles`.`id` = `roles_users`.`role_id` WHERE `roles_users`.`user_id` = 10 ORDER BY `roles`.`id` ASC LIMIT 1[0m
+  ↳ app/views/layouts/application.html.erb:31
+  Rendered layout layouts/application.html.erb (Duration: 6.2ms | Allocations: 4551)
+Completed 200 OK in 11ms (Views: 6.8ms | ActiveRecord: 1.1ms | Allocations: 6789)
+
+
+Started DELETE "/users/sign_out" for ::1 at 2022-08-31 12:10:26 +0530
+Processing by Devise::SessionsController#destroy as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 10 ORDER BY `users`.`id` ASC LIMIT 1[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 4ms (ActiveRecord: 0.4ms | Allocations: 1975)
+
+
+Started GET "/" for ::1 at 2022-08-31 12:10:26 +0530
+Processing by HomeController#homepage as TURBO_STREAM
+Completed 401 Unauthorized in 1ms (ActiveRecord: 0.0ms | Allocations: 293)
+
+
+Started GET "/users/sign_in.turbo_stream" for ::1 at 2022-08-31 12:10:26 +0530
+Processing by Devise::SessionsController#new as TURBO_STREAM
+Completed 406 Not Acceptable in 1ms (ActiveRecord: 0.0ms | Allocations: 801)
+
+
+  
+ActionController::UnknownFormat (ActionController::UnknownFormat):
+  
+responders (3.0.1) lib/action_controller/respond_with.rb:215:in `respond_with'
+devise (4.8.1) app/controllers/devise/sessions_controller.rb:14:in `new'
+actionpack (7.0.3.1) lib/action_controller/metal/basic_implicit_render.rb:6:in `send_action'
+actionpack (7.0.3.1) lib/abstract_controller/base.rb:215:in `process_action'
+actionpack (7.0.3.1) lib/action_controller/metal/rendering.rb:53:in `process_action'
+actionpack (7.0.3.1) lib/abstract_controller/callbacks.rb:234:in `block in process_action'
+activesupport (7.0.3.1) lib/active_support/callbacks.rb:118:in `block in run_callbacks'
+actiontext (7.0.3.1) lib/action_text/rendering.rb:20:in `with_renderer'
+actiontext (7.0.3.1) lib/action_text/engine.rb:69:in `block (4 levels) in <class:Engine>'
+activesupport (7.0.3.1) lib/active_support/callbacks.rb:127:in `instance_exec'
+activesupport (7.0.3.1) lib/active_support/callbacks.rb:127:in `block in run_callbacks'
+activesupport (7.0.3.1) lib/active_support/callbacks.rb:138:in `run_callbacks'
+actionpack (7.0.3.1) lib/abstract_controller/callbacks.rb:233:in `process_action'
+actionpack (7.0.3.1) lib/action_controller/metal/rescue.rb:22:in `process_action'
+actionpack (7.0.3.1) lib/action_controller/metal/instrumentation.rb:67:in `block in process_action'
+activesupport (7.0.3.1) lib/active_support/notifications.rb:206:in `block in instrument'
+activesupport (7.0.3.1) lib/active_support/notifications/instrumenter.rb:24:in `instrument'
+activesupport (7.0.3.1) lib/active_support/notifications.rb:206:in `instrument'
+actionpack (7.0.3.1) lib/action_controller/metal/instrumentation.rb:66:in `process_action'
+actionpack (7.0.3.1) lib/action_controller/metal/params_wrapper.rb:259:in `process_action'
+activerecord (7.0.3.1) lib/active_record/railties/controller_runtime.rb:27:in `process_action'
+actionpack (7.0.3.1) lib/abstract_controller/base.rb:151:in `process'
+actionview (7.0.3.1) lib/action_view/rendering.rb:39:in `process'
+actionpack (7.0.3.1) lib/action_controller/metal.rb:188:in `dispatch'
+actionpack (7.0.3.1) lib/action_controller/metal.rb:251:in `dispatch'
+actionpack (7.0.3.1) lib/action_dispatch/routing/route_set.rb:49:in `dispatch'
+actionpack (7.0.3.1) lib/action_dispatch/routing/route_set.rb:32:in `serve'
+actionpack (7.0.3.1) lib/action_dispatch/routing/mapper.rb:18:in `block in <class:Constraints>'
+actionpack (7.0.3.1) lib/action_dispatch/routing/mapper.rb:48:in `serve'
+actionpack (7.0.3.1) lib/action_dispatch/journey/router.rb:50:in `block in serve'
+actionpack (7.0.3.1) lib/action_dispatch/journey/router.rb:32:in `each'
+actionpack (7.0.3.1) lib/action_dispatch/journey/router.rb:32:in `serve'
+actionpack (7.0.3.1) lib/action_dispatch/routing/route_set.rb:852:in `call'
+warden (1.2.9) lib/warden/manager.rb:36:in `block in call'
+warden (1.2.9) lib/warden/manager.rb:34:in `catch'
+warden (1.2.9) lib/warden/manager.rb:34:in `call'
+rack (2.2.4) lib/rack/tempfile_reaper.rb:15:in `call'
+rack (2.2.4) lib/rack/etag.rb:27:in `call'
+rack (2.2.4) lib/rack/conditional_get.rb:27:in `call'
+rack (2.2.4) lib/rack/head.rb:12:in `call'
+actionpack (7.0.3.1) lib/action_dispatch/http/permissions_policy.rb:38:in `call'
+actionpack (7.0.3.1) lib/action_dispatch/http/content_security_policy.rb:36:in `call'
+rack (2.2.4) lib/rack/session/abstract/id.rb:266:in `context'
+rack (2.2.4) lib/rack/session/abstract/id.rb:260:in `call'
+actionpack (7.0.3.1) lib/action_dispatch/middleware/cookies.rb:697:in `call'
+activerecord (7.0.3.1) lib/active_record/migration.rb:603:in `call'
+actionpack (7.0.3.1) lib/action_dispatch/middleware/callbacks.rb:27:in `block in call'
+activesupport (7.0.3.1) lib/active_support/callbacks.rb:99:in `run_callbacks'
+actionpack (7.0.3.1) lib/action_dispatch/middleware/callbacks.rb:26:in `call'
+actionpack (7.0.3.1) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (7.0.3.1) lib/action_dispatch/middleware/actionable_exceptions.rb:17:in `call'
+actionpack (7.0.3.1) lib/action_dispatch/middleware/debug_exceptions.rb:28:in `call'
+web-console (4.2.0) lib/web_console/middleware.rb:132:in `call_app'
+web-console (4.2.0) lib/web_console/middleware.rb:28:in `block in call'
+web-console (4.2.0) lib/web_console/middleware.rb:17:in `catch'
+web-console (4.2.0) lib/web_console/middleware.rb:17:in `call'
+actionpack (7.0.3.1) lib/action_dispatch/middleware/show_exceptions.rb:26:in `call'
+railties (7.0.3.1) lib/rails/rack/logger.rb:40:in `call_app'
+railties (7.0.3.1) lib/rails/rack/logger.rb:25:in `block in call'
+activesupport (7.0.3.1) lib/active_support/tagged_logging.rb:114:in `block in tagged'
+activesupport (7.0.3.1) lib/active_support/tagged_logging.rb:38:in `tagged'
+activesupport (7.0.3.1) lib/active_support/tagged_logging.rb:114:in `tagged'
+railties (7.0.3.1) lib/rails/rack/logger.rb:25:in `call'
+sprockets-rails (3.4.2) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (7.0.3.1) lib/action_dispatch/middleware/remote_ip.rb:93:in `call'
+actionpack (7.0.3.1) lib/action_dispatch/middleware/request_id.rb:26:in `call'
+rack (2.2.4) lib/rack/method_override.rb:24:in `call'
+rack (2.2.4) lib/rack/runtime.rb:22:in `call'
+activesupport (7.0.3.1) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (7.0.3.1) lib/action_dispatch/middleware/server_timing.rb:20:in `call'
+actionpack (7.0.3.1) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (7.0.3.1) lib/action_dispatch/middleware/static.rb:23:in `call'
+rack (2.2.4) lib/rack/sendfile.rb:110:in `call'
+actionpack (7.0.3.1) lib/action_dispatch/middleware/host_authorization.rb:137:in `call'
+railties (7.0.3.1) lib/rails/engine.rb:530:in `call'
+puma (5.6.4) lib/puma/configuration.rb:252:in `call'
+puma (5.6.4) lib/puma/request.rb:77:in `block in handle_request'
+puma (5.6.4) lib/puma/thread_pool.rb:340:in `with_force_shutdown'
+puma (5.6.4) lib/puma/request.rb:76:in `handle_request'
+puma (5.6.4) lib/puma/server.rb:441:in `process_client'
+puma (5.6.4) lib/puma/thread_pool.rb:147:in `block in spawn_thread'
+Started GET "/" for ::1 at 2022-08-31 12:10:26 +0530
+Processing by HomeController#homepage as HTML
+Completed 401 Unauthorized in 1ms (ActiveRecord: 0.0ms | Allocations: 270)
+
+
+Started GET "/users/sign_in" for ::1 at 2022-08-31 12:10:26 +0530
+Processing by Devise::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered devise/shared/_links.html.erb (Duration: 0.2ms | Allocations: 138)
+  Rendered devise/sessions/new.html.erb within layouts/application (Duration: 2.0ms | Allocations: 1286)
+  Rendered layout layouts/application.html.erb (Duration: 4.6ms | Allocations: 3685)
+Completed 200 OK in 6ms (Views: 5.0ms | ActiveRecord: 0.0ms | Allocations: 4317)
+
+
+Started POST "/users/sign_in" for ::1 at 2022-08-31 12:10:36 +0530
+Processing by Devise::SessionsController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "user"=>{"email"=>"shashank@gmail.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`email` = 'shashank@gmail.com' ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[36mRole Load (0.5ms)[0m  [1m[34mSELECT `roles`.* FROM `roles` WHERE `roles`.`field` IS NULL LIMIT 1[0m
+  ↳ app/controllers/application_controller.rb:14:in `after_sign_in_path_for'
+  [1m[36mRole Load (0.5ms)[0m  [1m[34mSELECT `roles`.* FROM `roles` INNER JOIN `roles_users` ON `roles`.`id` = `roles_users`.`role_id` WHERE `roles_users`.`user_id` = 17 ORDER BY `roles`.`id` ASC LIMIT 1[0m
+  ↳ app/controllers/application_controller.rb:17:in `after_sign_in_path_for'
+  [1m[36mCACHE Role Load (0.0ms)[0m  [1m[34mSELECT `roles`.* FROM `roles` INNER JOIN `roles_users` ON `roles`.`id` = `roles_users`.`role_id` WHERE `roles_users`.`user_id` = 17 ORDER BY `roles`.`id` ASC LIMIT 1[0m
+  ↳ app/controllers/application_controller.rb:19:in `after_sign_in_path_for'
+Redirected to http://localhost:3000/properties
+Completed 302 Found in 285ms (ActiveRecord: 1.4ms | Allocations: 4567)
+
+
+Started GET "/properties" for ::1 at 2022-08-31 12:10:36 +0530
+Processing by PropertiesController#index as TURBO_STREAM
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 17 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  Rendering layout layouts/application.html.erb
+  Rendering properties/index.html.erb within layouts/application
+  [1m[36mProperty Load (0.3ms)[0m  [1m[34mSELECT `properties`.* FROM `properties` WHERE `properties`.`user_id` = 17[0m
+  ↳ app/views/properties/index.html.erb:15
+  Rendered properties/index.html.erb within layouts/application (Duration: 1.5ms | Allocations: 896)
+  [1m[36mRole Load (0.2ms)[0m  [1m[34mSELECT `roles`.* FROM `roles` INNER JOIN `roles_users` ON `roles`.`id` = `roles_users`.`role_id` WHERE `roles_users`.`user_id` = 17 ORDER BY `roles`.`id` ASC LIMIT 1[0m
+  ↳ app/views/layouts/application.html.erb:31
+  Rendered layout layouts/application.html.erb (Duration: 6.8ms | Allocations: 4433)
+Completed 200 OK in 10ms (Views: 6.7ms | ActiveRecord: 0.8ms | Allocations: 6063)
+
+
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT `users`.* FROM `users` ORDER BY `users`.`id` DESC LIMIT 1[0m
+Started GET "/users/17" for ::1 at 2022-08-31 12:11:57 +0530
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"17"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 17 ORDER BY `users`.`id` ASC LIMIT 1[0m
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT `users`.* FROM `users` WHERE `users`.`id` = 17 LIMIT 1[0m
+  ↳ app/controllers/users_controller.rb:3:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering users/show.html.erb within layouts/application
+  [1m[36mActiveStorage::Attachment Load (0.5ms)[0m  [1m[34mSELECT `active_storage_attachments`.* FROM `active_storage_attachments` WHERE `active_storage_attachments`.`record_id` = 17 AND `active_storage_attachments`.`record_type` = 'User' AND `active_storage_attachments`.`name` = 'avatar' LIMIT 1[0m
+  ↳ app/views/users/show.html.erb:7
+  [1m[36mActiveStorage::Blob Load (0.2ms)[0m  [1m[34mSELECT `active_storage_blobs`.* FROM `active_storage_blobs` WHERE `active_storage_blobs`.`id` = 1 LIMIT 1[0m
+  ↳ app/views/users/show.html.erb:8
+  Rendered users/show.html.erb within layouts/application (Duration: 3.8ms | Allocations: 1990)
+  [1m[36mRole Load (0.3ms)[0m  [1m[34mSELECT `roles`.* FROM `roles` INNER JOIN `roles_users` ON `roles`.`id` = `roles_users`.`role_id` WHERE `roles_users`.`user_id` = 17 ORDER BY `roles`.`id` ASC LIMIT 1[0m
+  ↳ app/views/layouts/application.html.erb:31
+  Rendered layout layouts/application.html.erb (Duration: 8.3ms | Allocations: 5510)
+Completed 200 OK in 12ms (Views: 7.7ms | ActiveRecord: 1.5ms | Allocations: 7618)
+
+
+Started GET "/rails/active_storage/blobs/redirect/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBCZz09IiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--f63487ecb7e1d540396061d456135c786baf38a1/IMG_20220810_162150.jpg" for ::1 at 2022-08-31 12:11:57 +0530
+Processing by ActiveStorage::Blobs::RedirectController#show as JPEG
+  Parameters: {"signed_id"=>"eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBCZz09IiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--f63487ecb7e1d540396061d456135c786baf38a1", "filename"=>"IMG_20220810_162150"}
+  [1m[36mActiveStorage::Blob Load (0.4ms)[0m  [1m[34mSELECT `active_storage_blobs`.* FROM `active_storage_blobs` WHERE `active_storage_blobs`.`id` = 1 LIMIT 1[0m
+[36m  Disk Storage (0.4ms) [0m[34mGenerated URL for file at key: ns1vncpwew4kix5r0d7rmw3q3ny6 (http://localhost:3000/rails/active_storage/disk/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaDdDVG9JYTJWNVNTSWhibk14ZG01amNIZGxkelJyYVhnMWNqQmtOM0p0ZHpOeE0yNTVOZ1k2QmtWVU9oQmthWE53YjNOcGRHbHZia2tpV1dsdWJHbHVaVHNnWm1sc1pXNWhiV1U5SWtsTlIxOHlNREl5TURneE1GOHhOakl4TlRBdWFuQm5JanNnWm1sc1pXNWhiV1VxUFZWVVJpMDRKeWRKVFVkZk1qQXlNakE0TVRCZk1UWXlNVFV3TG1wd1p3WTdCbFE2RVdOdmJuUmxiblJmZEhsd1pVa2lEMmx0WVdkbEwycHdaV2NHT3daVU9oRnpaWEoyYVdObFgyNWhiV1U2Q214dlkyRnMiLCJleHAiOiIyMDIyLTA4LTMxVDA2OjQ2OjU3Ljg5NVoiLCJwdXIiOiJibG9iX2tleSJ9fQ==--e503b2d0704a585d035d35dc9b876cce72682091/IMG_20220810_162150.jpg)[0m
+Redirected to http://localhost:3000/rails/active_storage/disk/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaDdDVG9JYTJWNVNTSWhibk14ZG01amNIZGxkelJyYVhnMWNqQmtOM0p0ZHpOeE0yNTVOZ1k2QmtWVU9oQmthWE53YjNOcGRHbHZia2tpV1dsdWJHbHVaVHNnWm1sc1pXNWhiV1U5SWtsTlIxOHlNREl5TURneE1GOHhOakl4TlRBdWFuQm5JanNnWm1sc1pXNWhiV1VxUFZWVVJpMDRKeWRKVFVkZk1qQXlNakE0TVRCZk1UWXlNVFV3TG1wd1p3WTdCbFE2RVdOdmJuUmxiblJmZEhsd1pVa2lEMmx0WVdkbEwycHdaV2NHT3daVU9oRnpaWEoyYVdObFgyNWhiV1U2Q214dlkyRnMiLCJleHAiOiIyMDIyLTA4LTMxVDA2OjQ2OjU3Ljg5NVoiLCJwdXIiOiJibG9iX2tleSJ9fQ==--e503b2d0704a585d035d35dc9b876cce72682091/IMG_20220810_162150.jpg
+Completed 302 Found in 3ms (ActiveRecord: 0.4ms | Allocations: 1403)
+
+
+Started GET "/rails/active_storage/disk/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaDdDVG9JYTJWNVNTSWhibk14ZG01amNIZGxkelJyYVhnMWNqQmtOM0p0ZHpOeE0yNTVOZ1k2QmtWVU9oQmthWE53YjNOcGRHbHZia2tpV1dsdWJHbHVaVHNnWm1sc1pXNWhiV1U5SWtsTlIxOHlNREl5TURneE1GOHhOakl4TlRBdWFuQm5JanNnWm1sc1pXNWhiV1VxUFZWVVJpMDRKeWRKVFVkZk1qQXlNakE0TVRCZk1UWXlNVFV3TG1wd1p3WTdCbFE2RVdOdmJuUmxiblJmZEhsd1pVa2lEMmx0WVdkbEwycHdaV2NHT3daVU9oRnpaWEoyYVdObFgyNWhiV1U2Q214dlkyRnMiLCJleHAiOiIyMDIyLTA4LTMxVDA2OjQ2OjU3Ljg5NVoiLCJwdXIiOiJibG9iX2tleSJ9fQ==--e503b2d0704a585d035d35dc9b876cce72682091/IMG_20220810_162150.jpg" for ::1 at 2022-08-31 12:11:57 +0530
+Processing by ActiveStorage::DiskController#show as JPEG
+  Parameters: {"encoded_key"=>"[FILTERED]", "filename"=>"IMG_20220810_162150"}
+Completed 200 OK in 0ms (ActiveRecord: 0.0ms | Allocations: 178)
+
+
